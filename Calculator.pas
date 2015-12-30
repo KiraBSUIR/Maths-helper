@@ -56,10 +56,7 @@ type
     btnCosH: TButton;
     btnTgH: TButton;
     btnCtgH: TButton;
-<<<<<<< HEAD
     btnFactorial: TButton;
-=======
->>>>>>> a5dc70a2a9f1dea123ef9bcb51e312f894e0e7df
     procedure btnShowMenuClick(Sender: TObject);
     procedure btnNumber7Click(Sender: TObject);
     function ArcCtg(var Value: real): Real;
@@ -107,10 +104,7 @@ type
     procedure btnCosHClick(Sender: TObject);
     procedure btnTgHClick(Sender: TObject);
     procedure btnCtgHClick(Sender: TObject);
-<<<<<<< HEAD
     procedure btnFactorialClick(Sender: TObject);
-=======
->>>>>>> a5dc70a2a9f1dea123ef9bcb51e312f894e0e7df
   private
     { Private declarations }
   public
@@ -244,22 +238,14 @@ end;
 
 procedure TForm5.btnCtgHClick(Sender: TObject);
 begin
-   if (editNumber.Text <> '') then
+   if (editNumber.Text <> '') and (editNumber.Text[1] <> '0') then
       FirstValue := strtofloat(editNumber.Text);
    editNumber.text := '';
    ResultValue := CtgH(FirstValue);
    editNumber.Text := floattostr(ResultValue);
 end;
 
-procedure TForm5.btnDivideClick(Sender: TObject);
-begin
-   if (editNumber.Text <> '') then
-      FirstValue := StrToFloat(editNumber.text);
-   Code := '/';
-   editNumber.Text := '';
-end;
 
-<<<<<<< HEAD
 procedure TForm5.btnFactorialClick(Sender: TObject);
 var
    i, Factorial, Counter: integer;
@@ -278,8 +264,6 @@ begin
    editNumber.Text:=floattostr(ResultValue);
 end;
 
-=======
->>>>>>> a5dc70a2a9f1dea123ef9bcb51e312f894e0e7df
 procedure TForm5.btnIngFunctionsClick(Sender: TObject);
 begin
    btnSin.Visible := True;
@@ -300,23 +284,14 @@ begin
    btnArcCosH.Visible := true;
    btnArcTanh.Visible := True;
    btnArcCtgH.Visible := true;
-<<<<<<< HEAD
    btnFactorial.Visible := true;
-=======
->>>>>>> a5dc70a2a9f1dea123ef9bcb51e312f894e0e7df
 end;
 
-procedure TForm5.btnMultiplieClick(Sender: TObject);
-begin
-if (editNumber.Text <> '') then
-      FirstValue := StrToFloat(editNumber.text);
-   Code := '*';
-   editNumber.Text := '';
-end;
 
 procedure TForm5.btnNumber0Click(Sender: TObject);
 begin
-   editNumber.Text := editNumber.Text + '0';
+   if (editNumber.Text <> '') then
+      editNumber.Text := editNumber.Text + '0';
 end;
 
 procedure TForm5.btnNumber1Click(Sender: TObject);
@@ -366,11 +341,59 @@ end;
 
 procedure TForm5.btnPolusClick(Sender: TObject);
 begin
+   if (editNumber.Text = '') then
+      editNumber.Text := '-';
    if(editNumber.Text[1] = '-') then
       editNumber.Text := editNumber.Text
    else
-      editNumber.Text :='-' + editNumber.Text;
+      editNumber.Text := '-' + editNumber.Text;
 end;
+
+
+procedure TForm5.buttonMinusClick(Sender: TObject);
+begin
+   if (editNumber.Text <> '') then
+      FirstValue := StrToFloat(editNumber.text);
+   Code := '-';
+   editNumber.Text := '';
+end;
+
+
+procedure TForm5.buttonSumClick(Sender: TObject);
+begin
+   if (editNumber.Text <> '') then
+      FirstValue := StrToFloat(editNumber.text);
+   Code := '+';
+   editNumber.Text := '';
+end;
+
+
+procedure TForm5.btnMultiplieClick(Sender: TObject);
+begin
+if (editNumber.Text <> '') then
+      FirstValue := StrToFloat(editNumber.text);
+   Code := '*';
+   editNumber.Text := '';
+end;
+
+
+procedure TForm5.btnDivideClick(Sender: TObject);
+begin
+   if (editNumber.Text <> '') and (editNumber.Text[1] <> '0') then
+      FirstValue := StrToFloat(editNumber.text);
+   Code := '/';
+   editNumber.Text := '';
+end;
+
+
+procedure TForm5.btnXInYClick(Sender: TObject);
+begin
+   if (editNumber.Text <> '') then
+      FirstValue := StrToFloat(editNumber.text);
+   Code := '^';
+   editNumber.Text := '';
+end;
+
 
 procedure TForm5.btnResultClick(Sender: TObject);
 var
@@ -434,11 +457,7 @@ begin
     FirstValue := strtofloat( editNumber.Text);
      editNumber.Text := '';
      ResultValue := sqrt(Abs(FirstValue));
-<<<<<<< HEAD
      editNumber.Text:=floattostr(ResultValue);
-=======
-     editNumber.Text:=floattostr(ResultValue)
->>>>>>> a5dc70a2a9f1dea123ef9bcb51e312f894e0e7df
 end;
 
 procedure TForm5.btnTgClick(Sender: TObject);
@@ -463,22 +482,17 @@ begin
    editNumber.Text := floattostr(ResultValue);
 end;
 
-procedure TForm5.btnXInYClick(Sender: TObject);
-begin
-   if (editNumber.Text <> '') then
-      FirstValue := StrToFloat(editNumber.text);
-   Code := '^';
-   editNumber.Text := '';
-end;
 
 procedure TForm5.buttonFloatClick(Sender: TObject);
 var
    i: Integer;
 begin
-   if (pos(',',editNumber.text) <> 0) then
+   if (editNumber.Text = '') then
+      editNumber.Text := editNumber.Text + '0,';
+   if (pos(',',editNumber.text) <> 0)  then
       editNumber.Text := editNumber.Text
    else
-      editNumber.Text := editNumber.Text + ',';
+      editNumber.Text := editNumber.Text + ','
 end;
 
 
@@ -487,45 +501,17 @@ procedure TForm5.buttonFloatKeyDown(Sender: TObject; var Key: Word;
 var
    i: Integer;
 begin
-     if (pos(',',editNumber.text) <> 0) then
+   if (pos(',',editNumber.text) <> 0) then
       KeyChar := #0;
 end;
 
-procedure TForm5.buttonMinusClick(Sender: TObject);
-begin
-   if (editNumber.Text <> '') then
-      FirstValue := StrToFloat(editNumber.text);
-   Code := '-';
-   editNumber.Text := '';
-end;
-
-procedure TForm5.buttonSumClick(Sender: TObject);
-begin
-   if (editNumber.Text <> '') then
-      FirstValue := StrToFloat(editNumber.text);
-   Code := '+';
-   editNumber.Text := '';
-end;
-
-
-
-procedure TForm5.CloseCalcClick(Sender: TObject);
-begin
-   Close;
-   Form4.Show;
-end;
-
-procedure TForm5.copyClick(Sender: TObject);
-begin
-   editNumber.SelectAll;
-   editNumber.CopyToClipboard;
-end;
 
 function TForm5.CtgH(var value: Real): Real;
 begin
    Value := (Value * 3.14)/180;
    CtgH := 1 / (Tanh(Value));
 end;
+
 
 procedure TForm5.editNumberKeyDown(Sender: TObject; var Key: Word;
   var KeyChar: Char; Shift: TShiftState);
@@ -536,14 +522,29 @@ begin
       KeyChar := #0;
     if (pos('-',editNumber.text) <> 0) then
       KeyChar := #0;
-
+    if (Length(EditNumber.Text) = 0) then
+       if (KeyChar ='0') then
+          Keychar := #0;
 end;
 
+
+procedure TForm5.copyClick(Sender: TObject);
+begin
+   editNumber.SelectAll;
+   editNumber.CopyToClipboard;
+end;
 
 
 procedure TForm5.pasteClick(Sender: TObject);
 begin
    EditNumber.PasteFromClipboard;
+end;
+
+
+procedure TForm5.CloseCalcClick(Sender: TObject);
+begin
+   Close;
+   Form4.Show;
 end;
 
 end.
