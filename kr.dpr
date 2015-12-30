@@ -8,7 +8,10 @@ uses
 
 type
    TDynamicArray = array of byte;
+<<<<<<< HEAD
+=======
    MuAra = array of array of Integer;
+>>>>>>> a5dc70a2a9f1dea123ef9bcb51e312f894e0e7df
 
 procedure EnterFileName(var FileName: string);
 var

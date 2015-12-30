@@ -56,6 +56,10 @@ type
     btnCosH: TButton;
     btnTgH: TButton;
     btnCtgH: TButton;
+<<<<<<< HEAD
+    btnFactorial: TButton;
+=======
+>>>>>>> a5dc70a2a9f1dea123ef9bcb51e312f894e0e7df
     procedure btnShowMenuClick(Sender: TObject);
     procedure btnNumber7Click(Sender: TObject);
     function ArcCtg(var Value: real): Real;
@@ -103,6 +107,10 @@ type
     procedure btnCosHClick(Sender: TObject);
     procedure btnTgHClick(Sender: TObject);
     procedure btnCtgHClick(Sender: TObject);
+<<<<<<< HEAD
+    procedure btnFactorialClick(Sender: TObject);
+=======
+>>>>>>> a5dc70a2a9f1dea123ef9bcb51e312f894e0e7df
   private
     { Private declarations }
   public
@@ -251,6 +259,27 @@ begin
    editNumber.Text := '';
 end;
 
+<<<<<<< HEAD
+procedure TForm5.btnFactorialClick(Sender: TObject);
+var
+   i, Factorial, Counter: integer;
+begin
+   ResultValue := 1;
+   if (editNumber.Text <> '') then
+      FirstValue := StrToFloat(editNumber.text);
+   if (FirstValue < round(FirstValue)) then
+      Factorial := Round(FirstValue)
+   else
+      Factorial := Trunc(FirstValue);
+      for i := 1 to Factorial do
+         begin
+            ResultValue := ResultValue * i;
+         end;
+   editNumber.Text:=floattostr(ResultValue);
+end;
+
+=======
+>>>>>>> a5dc70a2a9f1dea123ef9bcb51e312f894e0e7df
 procedure TForm5.btnIngFunctionsClick(Sender: TObject);
 begin
    btnSin.Visible := True;
@@ -271,6 +300,10 @@ begin
    btnArcCosH.Visible := true;
    btnArcTanh.Visible := True;
    btnArcCtgH.Visible := true;
+<<<<<<< HEAD
+   btnFactorial.Visible := true;
+=======
+>>>>>>> a5dc70a2a9f1dea123ef9bcb51e312f894e0e7df
 end;
 
 procedure TForm5.btnMultiplieClick(Sender: TObject);
@@ -401,7 +434,11 @@ begin
     FirstValue := strtofloat( editNumber.Text);
      editNumber.Text := '';
      ResultValue := sqrt(Abs(FirstValue));
+<<<<<<< HEAD
+     editNumber.Text:=floattostr(ResultValue);
+=======
      editNumber.Text:=floattostr(ResultValue)
+>>>>>>> a5dc70a2a9f1dea123ef9bcb51e312f894e0e7df
 end;
 
 procedure TForm5.btnTgClick(Sender: TObject);
