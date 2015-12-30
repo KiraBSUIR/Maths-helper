@@ -1,0 +1,146 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 381
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object edtFirstSide: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 0
+    Position.X = 32.000000000000000000
+    Position.Y = 48.000000000000000000
+    Size.Width = 153.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object edtSecondSide: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 1
+    Position.X = 32.000000000000000000
+    Position.Y = 80.000000000000000000
+    Size.Width = 153.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object edtThirdSide: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 2
+    Position.X = 32.000000000000000000
+    Position.Y = 112.000000000000000000
+    Size.Width = 153.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object btnFindSquare: TButton
+    Position.X = 216.000000000000000000
+    Position.Y = 208.000000000000000000
+    Size.Width = 97.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    Text = 'Find Square'
+    OnClick = btnFindSquareClick
+  end
+  object LabelSquare: TLabel
+    Position.X = 376.000000000000000000
+    Position.Y = 80.000000000000000000
+    Size.Width = 177.000000000000000000
+    Size.Height = 41.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Square of triangle:'
+  end
+  object btnThroughTheRadius: TButton
+    Position.X = 216.000000000000000000
+    Position.Y = 248.000000000000000000
+    Size.Width = 97.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    Text = 'With radius'
+    OnClick = btnThroughTheRadiusClick
+  end
+  object edtRadius: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 6
+    Position.X = 32.000000000000000000
+    Position.Y = 144.000000000000000000
+    Size.Width = 153.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+  end
+  object btnWithoutRadius: TButton
+    Position.X = 216.000000000000000000
+    Position.Y = 280.000000000000000000
+    Size.Width = 97.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 7
+    Text = 'Without Radius'
+    OnClick = btnWithoutRadiusClick
+  end
+  object btnShowMenu: TButton
+    Position.X = 32.000000000000000000
+    Position.Y = 272.000000000000000000
+    Size.Width = 121.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 8
+    Text = 'close'
+    OnClick = btnShowMenuClick
+  end
+  object edtFirstAngle: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 9
+    Position.X = 32.000000000000000000
+    Position.Y = 176.000000000000000000
+    Size.Width = 153.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+  end
+  object edtSecondAngle: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 10
+    Position.X = 32.000000000000000000
+    Position.Y = 208.000000000000000000
+    Size.Width = 153.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+  end
+  object edtThirdAngle: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 11
+    Position.X = 32.000000000000000000
+    Position.Y = 240.000000000000000000
+    Size.Width = 153.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+  end
+  object btnwithangles: TButton
+    Position.X = 328.000000000000000000
+    Position.Y = 248.000000000000000000
+    Size.Width = 97.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 12
+    Text = 'with angles'
+    OnClick = btnwithanglesClick
+  end
+  object btnWithoutAngles: TButton
+    Position.X = 328.000000000000000000
+    Position.Y = 280.000000000000000000
+    Size.Width = 97.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 13
+    Text = 'Without Angles'
+    OnClick = btnWithoutAnglesClick
+  end
+end
