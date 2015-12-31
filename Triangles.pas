@@ -255,6 +255,8 @@ begin
           Keychar := #0;
 end;
 
+
+
 procedure TForm1.edtRadiusKeyDown(Sender: TObject; var Key: Word;
   var KeyChar: Char; Shift: TShiftState);
 begin
