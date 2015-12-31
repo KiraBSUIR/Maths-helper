@@ -17,6 +17,7 @@ type
     procedure btnCalculatorClick(Sender: TObject);
     procedure ButtonReminderClick(Sender: TObject);
     procedure btnGetOutClick(Sender: TObject);
+    procedure btnSuperNoteClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -28,7 +29,7 @@ var
 implementation
 
 {$R *.fmx}
-uses Calculator, Triangles;
+uses Calculator, Triangles, Matrixes;
 procedure TForm4.btnCalculatorClick(Sender: TObject);
 begin
    Form4.hide;
@@ -38,6 +39,12 @@ end;
 procedure TForm4.btnGetOutClick(Sender: TObject);
 begin
    Form4.Close;
+end;
+
+procedure TForm4.btnSuperNoteClick(Sender: TObject);
+begin
+   Form4.Hide;
+   Form2.Show;
 end;
 
 procedure TForm4.ButtonReminderClick(Sender: TObject);

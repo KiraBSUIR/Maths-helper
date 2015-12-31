@@ -3,13 +3,9 @@ unit Triangles;
 interface
 
 uses
-<<<<<<< HEAD
   Math, System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
-=======
-  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
->>>>>>> a5dc70a2a9f1dea123ef9bcb51e312f894e0e7df
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Controls.Presentation, FMX.Edit;
+  FMX.Controls.Presentation, FMX.Edit, System.Rtti, FMX.Grid, FMX.Layouts;
 
 type
   TForm1 = class(TForm)
@@ -21,30 +17,37 @@ type
     btnThroughTheRadius: TButton;
     edtRadius: TEdit;
     btnWithoutRadius: TButton;
-    btnShowMenu: TButton;
     edtFirstAngle: TEdit;
-<<<<<<< HEAD
     btnwithangles: TButton;
     btnWithoutAngles: TButton;
     btnClearAll: TButton;
-    lblFormules: TLabel;
-    lblFormulaisocleses: TLabel;
-=======
-    edtSecondAngle: TEdit;
-    edtThirdAngle: TEdit;
-    btnwithangles: TButton;
-    btnWithoutAngles: TButton;
->>>>>>> a5dc70a2a9f1dea123ef9bcb51e312f894e0e7df
+    lblFormula: TLabel;
+    StringFormula: TStringGrid;
+    angleandradius: TStringColumn;
+    strngclmnequilateral: TStringColumn;
+    strngclmnisosceles: TStringColumn;
+    strngclmnderi: TStringColumn;
+    lblvinoska: TLabel;
+    lblvinoska2: TLabel;
+    labelVinoska3: TLabel;
     procedure btnFindSquareClick(Sender: TObject);
     procedure btnThroughTheRadiusClick(Sender: TObject);
     procedure btnWithoutRadiusClick(Sender: TObject);
     procedure btnShowMenuClick(Sender: TObject);
     procedure btnwithanglesClick(Sender: TObject);
     procedure btnWithoutAnglesClick(Sender: TObject);
-<<<<<<< HEAD
     procedure btnClearAllClick(Sender: TObject);
-=======
->>>>>>> a5dc70a2a9f1dea123ef9bcb51e312f894e0e7df
+    procedure edtFirstSideKeyDown(Sender: TObject; var Key: Word;
+      var KeyChar: Char; Shift: TShiftState);
+    procedure edtSecondSideKeyDown(Sender: TObject; var Key: Word;
+      var KeyChar: Char; Shift: TShiftState);
+    procedure edtThirdSideKeyDown(Sender: TObject; var Key: Word;
+      var KeyChar: Char; Shift: TShiftState);
+    procedure edtFirstAngleKeyDown(Sender: TObject; var Key: Word;
+      var KeyChar: Char; Shift: TShiftState);
+    procedure edtRadiusKeyDown(Sender: TObject; var Key: Word;
+      var KeyChar: Char; Shift: TShiftState);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -59,7 +62,6 @@ implementation
 
 {$R *.fmx}
 uses Menu;
-<<<<<<< HEAD
 procedure TForm1.btnClearAllClick(Sender: TObject);
 begin
    edtFirstAngle.Text := '';
@@ -73,12 +75,9 @@ end;
 procedure TForm1.btnFindSquareClick(Sender: TObject);
 var
    semiperimeter, FirstAngle, FirstSide, SecondSide, ThirdSide, Radius: Integer;
-=======
-procedure TForm1.btnFindSquareClick(Sender: TObject);
-var
-   FirstSide, SecondSide, ThirdSide, Radius: Integer;
->>>>>>> a5dc70a2a9f1dea123ef9bcb51e312f894e0e7df
    Height, Square: real;
+const
+   clGreen = $4F7524;
 begin
    if (edtFirstSide.Text <> '') then
       FirstSide := StrToInt(EdtFirstSide.text);
@@ -86,7 +85,6 @@ begin
       SecondSide := StrToInt(edtSecondSide.text);
    if (edtThirdSide.Text <> '') then
       ThirdSide := StrToInt(edtThirdSide.text);
-<<<<<<< HEAD
    if (edtFirstAngle.Text <> '') then
       FirstAngle := StrToInt(edtFirstAngle.text);
    if (edtRadius.Text <> '') then
@@ -197,30 +195,6 @@ begin
                   end;
          end;
 
-=======
-   if (check = 0) then
-      if (FirstSide = SecondSide) and (FirstSide = ThirdSide) and (SecondSide = ThirdSide) then
-         begin
-            Square := Trunc((Sqr(FirstSide) * Sqrt(3)) / 4);
-            LabelSquare.Text := 'square of equilateral triangle is: ' + FloatToStr(Square);
-         end;
-   if (Check = 1) then
-      begin
-         if (edtRadius.Text <> '') then
-            Radius := StrToInt(edtRadius.text);
-         Radius := Radius * Radius;
-         Square := 3 * Sqrt(3) * Radius;
-         LabelSquare.Text := 'square of equilateral triangle is: ' + FloatToStr(Square);
-      end;
-      {if (FirstSide = SecondSide) then
-      begin
-         ThirdSide := round((1 / 2) * ThirdSide);
-         height := (SecondSide * SecondSide) - (ThirdSide * ThirdSide);
-         Height := Sqrt(height);
-         Square := ThirdSide * height;
-         LabelSquare.Text := 'square of triangle is: ' + FloatToStr(Square);
-      end;       }
->>>>>>> a5dc70a2a9f1dea123ef9bcb51e312f894e0e7df
 end;
 
 procedure TForm1.btnShowMenuClick(Sender: TObject);
@@ -233,34 +207,98 @@ procedure TForm1.btnThroughTheRadiusClick(Sender: TObject);
 begin
    Check := 1;
    edtRadius.Visible := true;
+   btnWithoutRadius.Visible := True;
+   btnThroughTheRadius.Visible := false;
+   btnwithangles.Visible := false;
 end;
 
 procedure TForm1.btnwithanglesClick(Sender: TObject);
 begin
    check := 2;
    edtFirstAngle.Visible := True;
-<<<<<<< HEAD
-=======
-   edtSecondSide.Visible := True;
-   edtThirdAngle.Visible := true;
->>>>>>> a5dc70a2a9f1dea123ef9bcb51e312f894e0e7df
+   btnwithangles.Visible := false;
+   btnWithoutAngles.Visible := true;
+   btnThroughTheRadius.Visible := False;
 end;
 
 procedure TForm1.btnWithoutAnglesClick(Sender: TObject);
 begin
    check := 0;
    edtFirstAngle.Visible := false;
-<<<<<<< HEAD
-=======
-   edtSecondSide.Visible := false;
-   edtThirdAngle.Visible := false;
->>>>>>> a5dc70a2a9f1dea123ef9bcb51e312f894e0e7df
+   btnwithangles.Visible := True;
+   btnWithoutAngles.Visible := false;
+   btnThroughTheRadius.Visible := True;
 end;
 
 procedure TForm1.btnWithoutRadiusClick(Sender: TObject);
 begin
    check := 0;
    edtRadius.Visible := false;
+   btnThroughTheRadius.Visible := True;
+   btnWithoutRadius.Visible := False;
+   btnwithangles.Visible := true;
+end;
+
+procedure TForm1.edtFirstAngleKeyDown(Sender: TObject; var Key: Word;
+  var KeyChar: Char; Shift: TShiftState);
+begin
+    if (Length(edtFirstAngle.Text) = 0) then
+       if (KeyChar ='0') then
+          Keychar := #0;
+end;
+
+procedure TForm1.edtFirstSideKeyDown(Sender: TObject; var Key: Word;
+  var KeyChar: Char; Shift: TShiftState);
+begin
+   if (Length(edtFirstSide.Text) = 0) then
+       if (KeyChar ='0') then
+          Keychar := #0;
+end;
+
+procedure TForm1.edtRadiusKeyDown(Sender: TObject; var Key: Word;
+  var KeyChar: Char; Shift: TShiftState);
+begin
+    if (Length(edtRadius.Text) = 0) then
+       if (KeyChar ='0') then
+          Keychar := #0;
+end;
+
+procedure TForm1.edtSecondSideKeyDown(Sender: TObject; var Key: Word;
+  var KeyChar: Char; Shift: TShiftState);
+begin
+    if (Length(edtSecondSide.Text) = 0) then
+       if (KeyChar ='0') then
+          Keychar := #0;
+end;
+
+procedure TForm1.edtThirdSideKeyDown(Sender: TObject; var Key: Word;
+  var KeyChar: Char; Shift: TShiftState);
+begin
+    if (Length(edtThirdSide.Text) = 0) then
+       if (KeyChar ='0') then
+          Keychar := #0;
+end;
+
+
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+   StringFormula.Cells[0,0] := ('additional');
+   StringFormula.Cells[1,0] := ('equilateral');
+   StringFormula.Cells[2,0] := ('isosceles');
+   StringFormula.Cells[3,0] := ('derivative');
+   StringFormula.Cells[0,1] := ('Without additional');
+   StringFormula.Cells[1,1] := ('(AnySide^2)* 1.73) / 4)');
+   StringFormula.Cells[2,1] := ('0.5*Height*Side');
+   StringFormula.Cells[3,1] := ('((p-AB)*(p-AC)*(p-BC))^(1/2)**');
+   StringFormula.Cells[0,2] := ('With Angle');
+   StringFormula.Cells[1,2] := ('there is no special formule');
+   StringFormula.Cells[2,2] := ('(1/2) * AB^2 Sin(Angle***)');
+   StringFormula.Cells[3,2] := ('(1/2)*AB*BC*Sin(angle)');
+   StringFormula.Cells[0,3] := ('with radius');
+   StringFormula.Cells[1,3] := ('3*(3^(1/2))*Radius');
+   StringFormula.Cells[2,3] := ('p*Radius');
+   StringFormula.Cells[3,3] := ('(AB*BC*CB)/4Radius');
 end;
 
 end.
