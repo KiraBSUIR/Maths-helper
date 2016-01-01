@@ -5,11 +5,12 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Menus,
-  System.Actions, FMX.ActnList, Fractions;
+  System.Actions, FMX.ActnList, Fractions, FMX.Controls.Presentation,
+  FMX.StdCtrls;
 
 type
   TForm2 = class(TForm)
-    frm: TFrame1;
+    frmfractions: TFrame1;
   private
     { Private declarations }
   public
@@ -22,6 +23,8 @@ var
 implementation
 
 {$R *.fmx}
+
+
 
 
 
